@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
 
-public class UIComponent : IComponentData
+public struct UIComponent : IComponentData
 {
     public bool IsMainMenu;
 }

@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 
-public class PlayerAuthoring : MonoBehaviour
+public class PlayerAuthoring : MonoBehaviour, IConvertGameObjectToEntity
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float PlayerSpeed = 6f;
+    public float3 MoveDirection;
 
-    // Update is called once per frame
-    void Update()
+    public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
-        
+        dstManager.AddComponentData(entity, new PlayerComponent() { CharacterSpeed = PlayerSpeed});
+        dstManager.AddBuffer<MovementDataComponent>(entity);
+        dstManager.AddBuffer<AttackBufferComponent>(entity);
+        dstManager.AddComponentData(entity, new MoveDirectionComponent
+        {
+            MoveDirection = MoveDirection
+        });
     }
 }

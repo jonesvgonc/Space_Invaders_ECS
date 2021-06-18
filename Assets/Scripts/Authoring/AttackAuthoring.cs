@@ -1,18 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Entities;
 using UnityEngine;
 
-public class AttackAuthoring : MonoBehaviour
+public class AttackAuthoring : MonoBehaviour, IConvertGameObjectToEntity
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

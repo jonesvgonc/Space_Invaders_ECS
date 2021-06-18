@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
 
-public class PlayerComponent : IComponentData
+public struct PlayerComponent : IComponentData
 {
-    
+    public float CharacterSpeed;
 }

@@ -1,18 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Entities;
 using UnityEngine;
 
-public class AttackBufferComponent : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public struct AttackBufferComponent : IBufferElementData{ }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}

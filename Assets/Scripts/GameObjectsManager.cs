@@ -21,11 +21,13 @@ public class GameObjectsManager : MonoBehaviour, IDeclareReferencedPrefabs, ICon
     public static Entity Enemy4Entity;
 
     public GameObject Enemy5Prefab;
-    public static Entity Enemy5Entity;
-       
+    public static Entity Enemy5Entity;       
 
     public GameObject SpecialEnemyPrefab;
     public static Entity SpecialEnemyEntity;
+
+    public GameObject BlockBarrierPrefab;
+    public static Entity BlockBarrierEntity;
 
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
@@ -36,18 +38,18 @@ public class GameObjectsManager : MonoBehaviour, IDeclareReferencedPrefabs, ICon
         Enemy4Entity = conversionSystem.GetPrimaryEntity(Enemy4Prefab);
         Enemy5Entity = conversionSystem.GetPrimaryEntity(Enemy5Prefab);       
         SpecialEnemyEntity = conversionSystem.GetPrimaryEntity(SpecialEnemyPrefab);
+        BlockBarrierEntity = conversionSystem.GetPrimaryEntity(BlockBarrierPrefab);
     }
 
     public void DeclareReferencedPrefabs(List<GameObject> referencedPrefabs)
     {
         referencedPrefabs.Add(PlayerPrefab);
-
         referencedPrefabs.Add(Enemy1Prefab);
         referencedPrefabs.Add(Enemy2Prefab);
         referencedPrefabs.Add(Enemy3Prefab);
         referencedPrefabs.Add(Enemy4Prefab);
         referencedPrefabs.Add(Enemy5Prefab);
-
         referencedPrefabs.Add(SpecialEnemyPrefab);
+        referencedPrefabs.Add(BlockBarrierPrefab);
     }
 }

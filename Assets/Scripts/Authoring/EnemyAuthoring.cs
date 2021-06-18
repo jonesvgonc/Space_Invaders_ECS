@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 
-public class EnemyAuthoring : MonoBehaviour
+public class EnemyAuthoring : MonoBehaviour, IConvertGameObjectToEntity
 {
-    // Start is called before the first frame update
-    void Start()
+    public float EnemySpeed = 1f;
+    public float3 MoveDirection;
+    public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        dstManager.AddComponentData(entity, new EnemyComponent() { EnemySpeed =EnemySpeed });
+        dstManager.AddBuffer<MovementDataComponent>(entity);
+        dstManager.AddBuffer<AttackBufferComponent>(entity);
+        dstManager.AddComponentData(entity, new MoveDirectionComponent
+        {
+            MoveDirection = MoveDirection
+        });
     }
 }

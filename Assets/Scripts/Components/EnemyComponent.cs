@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
 
-public class EnemyComponent : IComponentData
+public struct EnemyComponent : IComponentData
 {
-    
+    public float EnemySpeed;
 }

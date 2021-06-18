@@ -57,27 +57,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Systems\MainMenuSystem.cs" />
+    <Compile Include="Assets\Scripts\Components\InGameFlag.cs" />
     <Compile Include="Assets\Scripts\Systems\UIControleSystem.cs" />
     <Compile Include="Assets\Scripts\Authoring\PlayerAuthoring.cs" />
-    <Compile Include="Assets\Scripts\Components\MovementBufferComponent.cs" />
     <Compile Include="Assets\Scripts\Systems\EnemyMovementSystem.cs" />
     <Compile Include="Assets\Scripts\GameObjectsManager.cs" />
     <Compile Include="Assets\Scripts\Systems\StartGameSystem.cs" />
+    <Compile Include="Assets\Scripts\Components\BlockBarrierComponent.cs" />
     <Compile Include="Assets\Scripts\Components\PlayerComponent.cs" />
     <Compile Include="Assets\Scripts\Authoring\GameStarterAuthoring.cs" />
-    <Compile Include="Assets\Scripts\Systems\PlayerMovementSystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\EnemyWaveCreationSystem.cs" />
+    <Compile Include="Assets\Scripts\Components\MovementDataComponent.cs" />
+    <Compile Include="Assets\Scripts\Systems\MovementSystem.cs" />
     <Compile Include="Assets\Scripts\Components\CanStartGameFlag.cs" />
     <Compile Include="Assets\Scripts\MonoBehaviour\UIEnableDisable.cs" />
     <Compile Include="Assets\Scripts\Components\ShotComponent.cs" />
     <Compile Include="Assets\Scripts\Authoring\AttackAuthoring.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackMovementSystem.cs" />
+    <Compile Include="Assets\Scripts\MonoBehaviour\InGameUIUpdates.cs" />
+    <Compile Include="Assets\Scripts\Authoring\BlockBarrierAuthoring.cs" />
     <Compile Include="Assets\Scripts\Authoring\UIAuthoring.cs" />
     <Compile Include="Assets\Scripts\Components\NewGameFlag.cs" />
     <Compile Include="Assets\Scripts\Components\UIComponent.cs" />
     <Compile Include="Assets\Scripts\Authoring\EnemyAuthoring.cs" />
+    <Compile Include="Assets\Scripts\Systems\MakeMovementSystem.cs" />
     <Compile Include="Assets\Scripts\Components\EnemyComponent.cs" />
+    <Compile Include="Assets\Scripts\Systems\WaveFlag.cs" />
     <Compile Include="Assets\Scripts\Components\AttackBufferComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\MoveDirectionComponent.cs" />
     <Compile Include="Assets\Scripts\Systems\InputSystem.cs" />
+    <Compile Include="Assets\Scripts\Components\GameDataComponent.cs" />
+    <Compile Include="Assets\Scripts\Systems\MakeAttackSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -710,6 +720,10 @@
       <Project>{C9D5A5F0-ABE4-0DC4-C1EA-B42AD10ED630}</Project>
       <Name>Unity.2D.IK.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Rendering.Hybrid.Editor.csproj">
+      <Project>{CCC39E76-E8ED-7FF1-11B7-683323573B91}</Project>
+      <Name>Unity.Rendering.Hybrid.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.2D.Path.Editor.csproj">
       <Project>{47886AA4-21D0-B5FB-9C82-1AD02447768B}</Project>
       <Name>Unity.2D.Path.Editor</Name>
@@ -865,6 +879,10 @@
     <ProjectReference Include="Unity.ScriptableBuildPipeline.Editor.csproj">
       <Project>{2A52CCE7-19AF-4CF1-21C4-527B740A2D4A}</Project>
       <Name>Unity.ScriptableBuildPipeline.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Rendering.Hybrid.csproj">
+      <Project>{02B83C77-F78C-6217-5103-D69638E80B53}</Project>
+      <Name>Unity.Rendering.Hybrid</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.SpriteShape.Runtime.csproj">
       <Project>{8F9DA648-D6F9-F77C-06B7-EAC2C96124B2}</Project>

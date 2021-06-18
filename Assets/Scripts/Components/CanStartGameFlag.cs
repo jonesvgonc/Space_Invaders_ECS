@@ -3,4 +3,4 @@ using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
 
-public class CanStartGameFlag : IComponentData {}
+public struct CanStartGameFlag : IComponentData {}

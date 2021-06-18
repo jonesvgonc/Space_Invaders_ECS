@@ -7,6 +7,8 @@ using UnityEngine;
 public class MainMenuSystem : SystemBase
 {
 
+    private bool startingScene = true;
+
     protected override void OnCreate()
     {
         base.OnCreate();
@@ -16,6 +18,23 @@ public class MainMenuSystem : SystemBase
 
     protected override void OnUpdate()
     {
+        if(startingScene)
+        {
+            startingScene = false;
+
+            Entities
+                .ForEach((Entity entity,
+                in UIComponent uiComponent) =>
+                {
+                    if (uiComponent.IsMainMenu)
+                        EntityManager.GetComponentObject<UIEnableDisable>(entity).Enable();
+                    else
+                        EntityManager.GetComponentObject<UIEnableDisable>(entity).Disable();
+                })
+                .WithoutBurst()
+                .Run();
+        }
+
         if(Input.GetKeyDown(KeyCode.Space))
         {
             EntityManager.DestroyEntity(GetSingletonEntity<CanStartGameFlag>());            
@@ -31,6 +50,10 @@ public class MainMenuSystem : SystemBase
                 })
                 .WithoutBurst()
                 .Run();
+
+            var newEntity = EntityManager.CreateEntity();
+
+            EntityManager.AddComponent<NewGameFlag>(newEntity);
         }
     }
 }
