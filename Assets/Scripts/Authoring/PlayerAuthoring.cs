@@ -13,7 +13,6 @@ public class PlayerAuthoring : MonoBehaviour, IConvertGameObjectToEntity
     {
         dstManager.AddComponentData(entity, new PlayerComponent() { CharacterSpeed = PlayerSpeed});
         dstManager.AddBuffer<MovementDataComponent>(entity);
-        dstManager.AddBuffer<AttackBufferComponent>(entity);
         dstManager.AddComponentData(entity, new MoveDirectionComponent
         {
             MoveDirection = MoveDirection

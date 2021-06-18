@@ -692,7 +692,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1850,6 +1850,7 @@ MonoBehaviour:
   Enemy5Prefab: {fileID: 782989479137460438, guid: 94b25e6fca4e41148a0c6b843957618e, type: 3}
   SpecialEnemyPrefab: {fileID: 4967526758164946100, guid: 57c2e521d3576434da3ec7952ae7963f, type: 3}
   BlockBarrierPrefab: {fileID: 4896717931087635805, guid: cf2d5e9667a48b642aa83dd0fca4bba1, type: 3}
+  AttackPrefab: {fileID: 3996943751756147483, guid: 5068dfebfef13e64c8bd1c0ba6fed97a, type: 3}
 --- !u!4 &2011727465
 Transform:
   m_ObjectHideFlags: 0

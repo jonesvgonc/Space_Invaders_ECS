@@ -12,7 +12,6 @@ public class EnemyAuthoring : MonoBehaviour, IConvertGameObjectToEntity
     {
         dstManager.AddComponentData(entity, new EnemyComponent() { EnemySpeed =EnemySpeed });
         dstManager.AddBuffer<MovementDataComponent>(entity);
-        dstManager.AddBuffer<AttackBufferComponent>(entity);
         dstManager.AddComponentData(entity, new MoveDirectionComponent
         {
             MoveDirection = MoveDirection

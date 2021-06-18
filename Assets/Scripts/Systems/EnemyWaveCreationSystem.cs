@@ -29,6 +29,10 @@ public class EnemyWaveCreationSystem : SystemBase
                         {
                             Value = new float3((indexX * 1f) + FirstXPosition, (indexY * 0.75f) + 1.5f, 0)
                         });
+                        var enemyComp = EntityManager.GetComponentData<EnemyComponent>(enemy1);
+                        enemyComp.EnemyRow = indexY;
+                        EntityManager.SetComponentData(enemy1, enemyComp);
+
                         break;
                     case 1:
                         var enemy2 = EntityManager.Instantiate(GameObjectsManager.Enemy2Entity);
@@ -36,6 +40,9 @@ public class EnemyWaveCreationSystem : SystemBase
                         {
                             Value = new float3((indexX * 1f) + FirstXPosition, (indexY * 0.75f) + 1.5f, 0)
                         });
+                        var enemyComp2 = EntityManager.GetComponentData<EnemyComponent>(enemy2);
+                        enemyComp2.EnemyRow = indexY;
+                        EntityManager.SetComponentData(enemy2, enemyComp2);
                         break;
                     case 2:
                         var enemy3 = EntityManager.Instantiate(GameObjectsManager.Enemy3Entity);
@@ -43,6 +50,9 @@ public class EnemyWaveCreationSystem : SystemBase
                         {
                             Value = new float3((indexX * 1f) + FirstXPosition, (indexY * 0.75f) + 1.5f, 0)
                         });
+                        var enemyComp3 = EntityManager.GetComponentData<EnemyComponent>(enemy3);
+                        enemyComp3.EnemyRow = indexY;
+                        EntityManager.SetComponentData(enemy3, enemyComp3);
                         break;
                     case 3:
                         var enemy4 = EntityManager.Instantiate(GameObjectsManager.Enemy4Entity);
@@ -50,6 +60,9 @@ public class EnemyWaveCreationSystem : SystemBase
                         {
                             Value = new float3((indexX * 1f) + FirstXPosition, (indexY * 0.75f) + 1.5f, 0)
                         });
+                        var enemyComp4 = EntityManager.GetComponentData<EnemyComponent>(enemy4);
+                        enemyComp4.EnemyRow = indexY;
+                        EntityManager.SetComponentData(enemy4, enemyComp4);
                         break;
                     case 4:
                         var enemy5 = EntityManager.Instantiate(GameObjectsManager.Enemy5Entity);
@@ -57,11 +70,13 @@ public class EnemyWaveCreationSystem : SystemBase
                         {
                             Value = new float3((indexX * 1f) + FirstXPosition, (indexY * 0.75f) + 1.5f, 0)
                         });
+                        var enemyComp5 = EntityManager.GetComponentData<EnemyComponent>(enemy5);
+                        enemyComp5.EnemyRow = indexY;
+                        EntityManager.SetComponentData(enemy5, enemyComp5);
                         break;
                     default:
                         break;
                 }
-
             }
         }
 

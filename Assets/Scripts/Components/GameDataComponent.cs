@@ -8,4 +8,5 @@ public struct GameDataComponent : IComponentData
     public int EnemyQuantity;
     public int Score;
     public int Lives;
+    public int Level;
 }

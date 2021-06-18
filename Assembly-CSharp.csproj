@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Systems\MainMenuSystem.cs" />
     <Compile Include="Assets\Scripts\Components\InGameFlag.cs" />
+    <Compile Include="Assets\Scripts\Components\GameDataComponent.cs" />
     <Compile Include="Assets\Scripts\Systems\UIControleSystem.cs" />
     <Compile Include="Assets\Scripts\Authoring\PlayerAuthoring.cs" />
     <Compile Include="Assets\Scripts\Systems\EnemyMovementSystem.cs" />
@@ -81,13 +82,16 @@
     <Compile Include="Assets\Scripts\Components\UIComponent.cs" />
     <Compile Include="Assets\Scripts\Authoring\EnemyAuthoring.cs" />
     <Compile Include="Assets\Scripts\Systems\MakeMovementSystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\MakeAttackSystem.cs" />
     <Compile Include="Assets\Scripts\Components\EnemyComponent.cs" />
     <Compile Include="Assets\Scripts\Systems\WaveFlag.cs" />
-    <Compile Include="Assets\Scripts\Components\AttackBufferComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\MakeAttackFlag.cs" />
     <Compile Include="Assets\Scripts\Components\MoveDirectionComponent.cs" />
     <Compile Include="Assets\Scripts\Systems\InputSystem.cs" />
-    <Compile Include="Assets\Scripts\Components\GameDataComponent.cs" />
-    <Compile Include="Assets\Scripts\Systems\MakeAttackSystem.cs" />
+    <Compile Include="Assets\Scripts\Components\AttackComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\DestroyFlag.cs" />
+    <Compile Include="Assets\Scripts\Systems\DestroySystem.cs" />
+    <Compile Include="Assets\Scripts\Systems\CollisionSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

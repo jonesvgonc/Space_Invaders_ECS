@@ -35,12 +35,8 @@ public class InputSystem : SystemBase
         if (attackShot && timingAttack > attackTimeCooldown)
         {
             timingAttack = 0f;
-            Entities
-                .ForEach((PlayerComponent player, DynamicBuffer<AttackBufferComponent> attackBuffer) =>
-                {
-                    attackBuffer.Add(new AttackBufferComponent());
-                })
-                .Schedule();
+            var attEntity = EntityManager.CreateEntity();
+            EntityManager.AddComponentData(attEntity, new MakeAttackFlag() { playerAttack = true });
         }
     }
 }

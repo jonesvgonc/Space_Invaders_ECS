@@ -28,16 +28,16 @@ public class StartGameSystem : ComponentSystem
         MountBarriers();
 
         var wave = EntityManager.CreateEntity();
-
-        EntityManager.AddComponentData(wave, new WaveFlag());
-
         var gameData = EntityManager.CreateEntity();
         EntityManager.AddComponentData(gameData, new GameDataComponent()
         {
             EnemyQuantity = 45,
             Lives = 3,
-            Score = 0
+            Score = 0,
+            Level = 1
         });
+
+        EntityManager.AddComponentData(wave, new WaveFlag());
 
         EntityManager.DestroyEntity(GetSingletonEntity<NewGameFlag>());
     }

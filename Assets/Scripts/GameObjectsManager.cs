@@ -29,6 +29,9 @@ public class GameObjectsManager : MonoBehaviour, IDeclareReferencedPrefabs, ICon
     public GameObject BlockBarrierPrefab;
     public static Entity BlockBarrierEntity;
 
+    public GameObject AttackPrefab;
+    public static Entity AttackEntity;
+
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
         PlayerEntity = conversionSystem.GetPrimaryEntity(PlayerPrefab);
@@ -39,6 +42,7 @@ public class GameObjectsManager : MonoBehaviour, IDeclareReferencedPrefabs, ICon
         Enemy5Entity = conversionSystem.GetPrimaryEntity(Enemy5Prefab);       
         SpecialEnemyEntity = conversionSystem.GetPrimaryEntity(SpecialEnemyPrefab);
         BlockBarrierEntity = conversionSystem.GetPrimaryEntity(BlockBarrierPrefab);
+        AttackEntity = conversionSystem.GetPrimaryEntity(AttackPrefab);
     }
 
     public void DeclareReferencedPrefabs(List<GameObject> referencedPrefabs)
@@ -51,5 +55,6 @@ public class GameObjectsManager : MonoBehaviour, IDeclareReferencedPrefabs, ICon
         referencedPrefabs.Add(Enemy5Prefab);
         referencedPrefabs.Add(SpecialEnemyPrefab);
         referencedPrefabs.Add(BlockBarrierPrefab);
+        referencedPrefabs.Add(AttackPrefab);
     }
 }
