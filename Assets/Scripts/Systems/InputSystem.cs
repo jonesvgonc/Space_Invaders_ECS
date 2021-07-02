@@ -7,7 +7,7 @@ using UnityEngine;
 public class InputSystem : SystemBase
 {
     private float timingAttack = 2f;
-    private float attackTimeCooldown = 1f;
+    private float attackTimeCooldown = 0.5f;
 
     protected override void OnCreate()
     {

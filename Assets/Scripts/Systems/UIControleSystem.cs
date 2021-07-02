@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Entities;
 using UnityEngine;
 
-public class UIControleSystem : MonoBehaviour
+[UpdateInGroup(typeof(InitializationSystemGroup))]
+public class UIControleSystem : SystemBase
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void OnCreate()
     {
+        base.OnCreate();
         
+        RequireSingletonForUpdate<InGameFlag>();
     }
-
-    // Update is called once per frame
-    void Update()
+    protected override void OnUpdate()
     {
-        
+        var componentUI = GetSingletonEntity<UIInGameFlag>();
+        EntityManager.GetComponentObject<InGameUIUpdates>(componentUI).SetScore(GetSingleton<GameDataComponent>().Score);
     }
 }

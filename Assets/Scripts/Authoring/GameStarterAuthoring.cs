@@ -7,6 +7,6 @@ public class GameStarterAuthoring : MonoBehaviour, IConvertGameObjectToEntity
 {
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
-        dstManager.AddComponent<CanStartGameFlag>(entity);
+        dstManager.AddComponentData(entity, new CanStartGameFlag() { StartingScene = true });
     }
 }

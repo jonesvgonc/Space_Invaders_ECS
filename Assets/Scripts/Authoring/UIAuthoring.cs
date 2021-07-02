@@ -10,5 +10,7 @@ public class UIAuthoring : MonoBehaviour, IConvertGameObjectToEntity
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
         dstManager.AddComponentData(entity, new UIComponent() { IsMainMenu = IsMainMenu});
+        if(!IsMainMenu)
+            dstManager.AddComponentData(entity, new UIInGameFlag() {});
     }
 }

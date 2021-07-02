@@ -7,5 +7,6 @@ public class AttackAuthoring : MonoBehaviour, IConvertGameObjectToEntity
 {
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
+        dstManager.AddComponent<GameObjectFlag>(entity);
     }
 }

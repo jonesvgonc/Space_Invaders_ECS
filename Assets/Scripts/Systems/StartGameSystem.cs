@@ -31,13 +31,13 @@ public class StartGameSystem : ComponentSystem
         var gameData = EntityManager.CreateEntity();
         EntityManager.AddComponentData(gameData, new GameDataComponent()
         {
-            EnemyQuantity = 45,
+            EnemyQuantity = 55,
             Lives = 3,
             Score = 0,
             Level = 1
         });
 
-        EntityManager.AddComponentData(wave, new WaveFlag());
+        EntityManager.AddComponentData(wave, new WaveFlag() {  isSpecialEnemy = false });
 
         EntityManager.DestroyEntity(GetSingletonEntity<NewGameFlag>());
     }

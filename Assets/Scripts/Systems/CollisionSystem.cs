@@ -41,12 +41,23 @@ public class CollisionSystem : SystemBase
                     {
                         var enemyTranslation = EntityManager.GetComponentData<Translation>(enemiesEntities[i]);
 
-                        var collide = math.distance(translation.Value, enemyTranslation.Value) <= .5f;
+                        var collide = math.distance(translation.Value, enemyTranslation.Value) <= .5f && attackData.IsPlayerAttack;
 
                         if (collide)
-                        {                            
+                        {
                             EntityManager.AddComponentData(attackEntity, new DestroyFlag());
                             EntityManager.AddComponentData(enemiesEntities[i], new DestroyFlag());
+                            var gameData = GetSingleton<GameDataComponent>();
+                            if(!EntityManager.GetComponentData<EnemyComponent>(enemiesEntities[i]).isSpecialEnemy)
+                                gameData.EnemyQuantity--;
+                            if(gameData.EnemyQuantity < 1)
+                            {
+                                var ent = EntityManager.CreateEntity();
+                                EntityManager.AddComponentData(ent, new WaveFlag() { isSpecialEnemy = false }); 
+                                gameData.Level++;
+                            }
+                            gameData.Score += EntityManager.GetComponentData<EnemyComponent>(enemiesEntities[i]).Score;
+                            SetSingleton<GameDataComponent>(gameData);
                         }
                     }
                 })
@@ -70,7 +81,7 @@ public class CollisionSystem : SystemBase
                     {
                         var barrierTranslation = EntityManager.GetComponentData<Translation>(barrierBlockEntities[i]);
 
-                        var collide = math.distance(translation.Value, barrierTranslation.Value) <= .5f;
+                        var collide = math.distance(translation.Value, barrierTranslation.Value) <= .1f;
 
                         if (collide)
                         {
@@ -85,6 +96,35 @@ public class CollisionSystem : SystemBase
         }
 
         barrierBlockEntities.Dispose();
+
+        Entities
+                  .ForEach((Entity attackEntity,
+                  ref Translation translation,
+                  ref AttackComponent attackData) =>
+                  {
+                      var playerTranslation = EntityManager.GetComponentData<Translation>(GetSingletonEntity<PlayerComponent>());
+
+                      var collide = math.distance(translation.Value, playerTranslation.Value) <= .5f && !attackData.IsPlayerAttack;
+
+                      if (collide)
+                      {
+                          EntityManager.AddComponentData(attackEntity, new DestroyFlag());
+                          var gameData = GetSingleton<GameDataComponent>();
+                          gameData.Lives -= 1;
+                          if(gameData.Lives >= 0)
+                              EntityManager.GetComponentObject<InGameUIUpdates>(GetSingletonEntity<UIInGameFlag>()).RemoveLife();
+                          else
+                          {
+                              var ent = EntityManager.CreateEntity();
+                              EntityManager.AddComponent<GameOverFlag>(ent);
+                          }
+
+                          SetSingleton<GameDataComponent>(gameData);
+                      }
+                  })
+                  .WithStructuralChanges()
+                  .WithoutBurst()
+                  .Run();
 
     }
 }

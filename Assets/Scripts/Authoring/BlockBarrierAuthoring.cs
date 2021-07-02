@@ -8,5 +8,6 @@ public class BlockBarrierAuthoring : MonoBehaviour, IConvertGameObjectToEntity
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
         dstManager.AddComponentData(entity, new BlockBarrierComponent());
+        dstManager.AddComponent<GameObjectFlag>(entity);
     }
 }

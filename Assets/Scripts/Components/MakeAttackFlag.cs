@@ -8,3 +8,7 @@ public struct MakeAttackFlag : IComponentData
     public bool playerAttack;
 }
 
+public struct GameOverFlag : IComponentData
+{
+}
+

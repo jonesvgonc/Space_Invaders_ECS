@@ -17,5 +17,6 @@ public class PlayerAuthoring : MonoBehaviour, IConvertGameObjectToEntity
         {
             MoveDirection = MoveDirection
         });
+        dstManager.AddComponent<GameObjectFlag>(entity);
     }
 }

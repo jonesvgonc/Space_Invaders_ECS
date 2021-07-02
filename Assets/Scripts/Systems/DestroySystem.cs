@@ -10,7 +10,6 @@ public class DestroySystem : SystemBase
     protected override void OnCreate()
     {
         _commandBufferSystem = World.GetOrCreateSystem<BeginSimulationEntityCommandBufferSystem>();
-        RequireSingletonForUpdate<InGameFlag>();
     }
     protected override void OnUpdate()
     {

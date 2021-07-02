@@ -5,10 +5,7 @@ using Unity.Entities;
 using UnityEngine;
 
 public class MainMenuSystem : SystemBase
-{
-
-    private bool startingScene = true;
-
+{    
     protected override void OnCreate()
     {
         base.OnCreate();
@@ -18,9 +15,11 @@ public class MainMenuSystem : SystemBase
 
     protected override void OnUpdate()
     {
-        if(startingScene)
+        var startFlag = GetSingleton<CanStartGameFlag>();
+        if (startFlag.StartingScene)
         {
-            startingScene = false;
+            startFlag.StartingScene = false;
+            SetSingleton(startFlag);
 
             Entities
                 .ForEach((Entity entity,
